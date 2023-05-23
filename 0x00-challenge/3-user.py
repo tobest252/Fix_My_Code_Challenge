@@ -35,7 +35,7 @@ class User:
         Password setter:
         - `None` if `pwd` is `None`
         - `None` if `pwd` is not a string
-        - Hash `pwd` in MD5 before assigning to `__password`
+        - Hash `pwd` in MD5 before assigning it to `__password`
         """
         if pwd is None or not isinstance(pwd, str):
             self.__password = None
@@ -80,7 +80,7 @@ if __name__ == '__main__':
     if user_2.password is not None:
         print("User.password should be None if set to None")
 
-    user_2.password = "89"
+    user_2.password = 89
     if user_2.password is not None:
         print("User.password should be None if set to an integer")
 
@@ -93,8 +93,8 @@ if __name__ == '__main__':
     if user_1.is_valid_password(None):
         print("is_valid_password should return False if compared with None")
 
-    if user_1.is_valid_password("89"):
+    if user_1.is_valid_password(89):
         print("is_valid_password should return False if compared with an integer")
 
     if user_2.is_valid_password("No pwd"):
-        print("is_valid_password should return False if no password is set")
+        print("is_valid_password should return False if no password set before")
